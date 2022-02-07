@@ -19,6 +19,7 @@ const PostWrite = (props)=> {
     let _post = is_edit ? post_list.find((p) => p.id === post_id) : null
     
     const [contents, setContents] = React.useState(_post? _post.contents : "");
+    const [layout, setLayout] = React.useState("");
 
     React.useEffect(()=> {
         if(is_edit && !_post){
@@ -38,7 +39,7 @@ const PostWrite = (props)=> {
     }
 
     const addPost = () => {
-        dispatch(postActions.addPostFB(contents));
+        dispatch(postActions.addPostFB(contents, layout));
     }
 
     const editPost = () => {
@@ -65,7 +66,27 @@ const PostWrite = (props)=> {
                 <Grid padding="16px">
                     <Text margin="0px" size="24px" bold>미리보기</Text>
                 </Grid>
-                <Image shape="rectangle" src={preview ? preview : "http://via.placeholder.com/400x300"}></Image>
+                <Grid>
+                    <Input is_radio label="오른쪽에 이미지 왼쪽에 텍스트" _onClick={()=> setLayout("img_right")} defaultChecked="checked"></Input>
+                    <Grid is_flex>
+                        <Text margin="0px" size="36px" bold>{contents ? contents : "텍스트"}</Text>
+                        <Image shape="rectangle" src={preview ? preview : "http://via.placeholder.com/400x300"}></Image>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    <Input is_radio label="왼쪽에 이미지 오른쪽에 텍스트" _onClick={()=> setLayout("img_left")}></Input>
+                    <Grid is_flex>
+                        <Image shape="rectangle" src={preview ? preview : "http://via.placeholder.com/400x300"}></Image>
+                        <Text margin="0px" size="36px" bold>{contents ? contents : "텍스트"}</Text>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    <Input is_radio label="하단에 이미지 상단에 텍스트" _onClick={()=> setLayout("img_auto")}></Input>
+                    <Grid>
+                        <Text margin="0px" size="36px" bold>{contents ? contents : "텍스트"}</Text>
+                        <Image shape="rectangle" src={preview ? preview : "http://via.placeholder.com/400x300"}></Image>
+                    </Grid>
+                </Grid>
             </Grid>
             <Grid padding="16px">
                 <Input value={contents} _onChange={changeContents} label="게시글 내용" placeholder="게시글 작성" multiLine></Input>

@@ -19,7 +19,7 @@ const PostDetail = (props) => {
         if(post){
             return;
         }
-
+        
         const postDB =firestore.collection("post");
         postDB.doc(id).get().then(doc => {
             console.log(doc);
