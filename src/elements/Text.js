@@ -25,6 +25,7 @@ const P = styled.p`
   font-size: ${(props) => props.size};
   font-weight: ${(props) => (props.bold? "600" : "400")};
   ${(props) => (props.margin? `margin: ${props.margin};` : '')}
+  font-family: 'Gaegu', cursive;
 `;
 
 export default Text;

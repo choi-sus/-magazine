@@ -43,7 +43,7 @@ const PostWrite = (props)=> {
     }
 
     const editPost = () => {
-        dispatch(postActions.editPostFB(post_id, {contents: contents}));
+        dispatch(postActions.editPostFB(post_id, {contents: contents, layout: layout}));
     }
 
     if(!is_login){

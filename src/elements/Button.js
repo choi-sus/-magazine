@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Button = (props) => {
 
-    const {text, _onClick, is_float, children, margin, width, padding, disabled} = props;
+    const {text, _onClick, is_float, children, margin, width, padding, disabled, lineHeight} = props;
 
     if (is_float){
       return(
@@ -17,11 +17,12 @@ const Button = (props) => {
       margin: margin,
       width: width,
       padding: padding,
+      lineHeight: lineHeight
     }
 
     return (
       <React.Fragment>
-        <ElButton {...styles} onClick={_onClick} disabled={disabled}>{text? text : children}</ElButton>
+        <ElButton {...styles} onClick={_onClick} disabled={disabled} lineHeight={lineHeight}>{text? text : children}</ElButton>
       </React.Fragment>
     );
 }
@@ -35,34 +36,47 @@ Button.defaultProps = {
     width: "100%",
     padding: "12px 0px;",
     disabled: false,
+    lineHeight: "20px"
 }
 
 const ElButton = styled.button`
     width: ${(props)=> props.width};
     // background-color: ${(props) => (props.disabled ? "#CFDDF1" : "#A4CBF0")};
-    color: #ffffff;
+    color: rgb(168, 105, 208);
     padding: ${(props)=> props.padding};
     box-sizing: border-box;
-    border: none;
     ${(props)=> (props.margin ? `margin: ${props.margin};` : '')}
-    ${(props)=> (props.disabled ? `background-color: #878787;` : `background-color: #000000;`)}
+    ${(props)=> (props.disabled ? `background-color: #878787;` : `background-color: #fff;`)}
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+    line-height: ${(props)=> props.lineHeight};
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid rgb(168, 105, 208);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color, color 0.5s ease-in;
+    &:hover {
+      color: #fff;
+      background-color: rgb(168, 105, 208);
+    }
 `;
 
 const FloatButton = styled.button`
-  width: 50px;
-  height: 50px;
-  background-color: #212121;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(168, 105, 208);
   color: #ffffff;
-  box-sizing:border-box;
-  font-size: 36px;
-  font-weight: 800;
+  box-sizing: border-box;
+  font-size: 33px;
   position: fixed;
-  bottom: 50px;
-  right: 16px;
+  bottom: 40px;
+  right: 40px;
   text-align: center;
   border: none;
   border-radius: 50px;
-  line-height: 50px;
+  line-height: 70px;
+  cursor: pointer;
 `;
 
 export default Button;

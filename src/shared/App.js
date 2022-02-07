@@ -1,5 +1,3 @@
-
-import './App.css';
 import React from "react";
 
 import {BrowserRouter, Route} from "react-router-dom";
@@ -18,6 +16,9 @@ import Permit from "./Permit";
 import { useDispatch } from 'react-redux';
 import {actionCreators as userActions} from "../redux/modules/user"
 import {apiKey} from "./firebase"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +46,9 @@ function App() {
         </ConnectedRouter>
       </Grid>
       <Permit>
-        <Button is_float text="+" _onClick={()=> {history.push("/write");}}></Button>
+        <Button is_float _onClick={()=> {history.push("/write");}}>
+          <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
+        </Button>
       </Permit>
     </React.Fragment>
   );

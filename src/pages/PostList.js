@@ -18,20 +18,16 @@ const PostList = (props) => {
     
     return (
         <React.Fragment>
-            <Grid bg="#EFF6FF" padding="20px 0">
+            <Grid bg="#EFF6FF" padding="150px 20% 50px 20%">
             {
                 post_list.map((p, idx)=> {
                     if(p.user_info.user_id === user_info?.uid){
                         return (
-                            // <Grid bg="#ffffff" margin="8px 0px" key={p.id} idx={idx} _onClick={()=> {history.push(`/post/${p.id}`);}}>
-                                <Post key={p.id} {...p} idx={idx} is_me/>
-                            // </Grid>
+                            <Post key={p.id} {...p} idx={idx} is_me/>
                         )
                     }else{
                         return (
-                            // <Grid bg="#ffffff" margin="8px 0px" key={p.id} _onClick={()=> {history.push(`/post/${p.id}`);}}>
-                                <Post key={p.id} {...p}/>
-                            // </Grid>
+                            <Post key={p.id} {...p}/>
                         )
                     }
                 })
