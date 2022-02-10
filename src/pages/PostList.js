@@ -18,7 +18,7 @@ const PostList = (props) => {
     
     return (
         <React.Fragment>
-            <Grid bg="#EFF6FF" padding="150px 20% 50px 20%">
+            <Grid padding="150px 20% 50px 20%">
             {
                 post_list.map((p, idx)=> {
                     if(p.user_info.user_id === user_info?.uid){

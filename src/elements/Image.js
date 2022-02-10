@@ -33,12 +33,12 @@ const Image = (props) => {
 Image.defaultProps = {
   shape: "circle",
   src: "http://file3.instiz.net/data/cached_img/upload/2019/01/15/6/04ee674122410d063a5966fa16da5db6.jpg",
-  size: 36,
+  size: 45,
 };
 
 const AspectOutter = styled.div`
     width: 100%;
-    min-width: 250px;
+    min-width: 200px;
 `;
 
 const AspectInner = styled.div`

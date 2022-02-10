@@ -46,13 +46,14 @@ const ElButton = styled.button`
     padding: ${(props)=> props.padding};
     box-sizing: border-box;
     ${(props)=> (props.margin ? `margin: ${props.margin};` : '')}
-    ${(props)=> (props.disabled ? `background-color: #878787;` : `background-color: #fff;`)}
+    ${(props)=> (props.disabled ? `background-color: rgb(195 166 214);` : `background-color: transparent;`)}
+    ${(props)=> (props.disabled ? `color: #fff;` : `color: rgb(168, 105, 208);`)}
+    ${(props)=> (props.disabled ? `border: 2px solid rgb(195 166 214);` : `border: 2px solid rgb(168, 105, 208);`)}
     font-family: 'Gaegu', cursive;
     font-size: 18px;
     line-height: ${(props)=> props.lineHeight};
     font-weight: 600;
     cursor: pointer;
-    border: 2px solid rgb(168, 105, 208);
     border-radius: 25px;
     cursor: pointer;
     transition: background-color, color 0.5s ease-in;

@@ -9,7 +9,7 @@ const Input = (props) => {
     if(multiLine){
       return (
         <Grid>
-          {label && <Text margin="0px">{label}</Text>}
+          {label && <Text  margin="0 0 10px 0" bold size="20px" color="rgb(168, 105, 208)">{label}</Text>}
           <ElTextarea value={value} placeholder={placeholder} onChange={_onChange} rows={10}></ElTextarea>
         </Grid>
       )
@@ -29,7 +29,7 @@ const Input = (props) => {
     return (
       <React.Fragment>
         <Grid>
-          {label && <Text margin="0px">{label}</Text>}
+          {label && <Text margin="0 0 10px 0" bold size="20px" color="rgb(168, 105, 208)">{label}</Text>}
           <ElInput type={type} placeholder={placeholder} onChange={_onChange} />
         </Grid>
       </React.Fragment>
@@ -51,21 +51,29 @@ Input.defaultProps = {
 }
 
 const ElTextarea = styled.textarea`
-    border: 1px solid #212121;
+border: 2px solid rgb(195 166 214);
     width: 100%;
-    padding: 12px 4px;
+    padding: 12px 10px;
     box-sizing: border-box;
+    font-family: 'Gaegu', cursive;
+    outline-color: rgb(168, 105, 208);
+    border-radius: 20px;
+    font-size: 16px;
 `;
 
 const ElInput = styled.input`
-    border: 1px solid #212121;
+    border: 2px solid rgb(195 166 214);
+    border-radius: 20px;
     width: 100%;
-    padding: 12px 4px;
+    padding: 12px 10px;
     box-sizing: border-box;
+    font-family: 'Gaegu', cursive;
+    font-size: 16px;
+    outline-color: rgb(168, 105, 208);
 `;
 
 const ElRadio = styled.input`
-  
+    font-family: 'Gaegu', cursive;
 `;
 
 export default Input;

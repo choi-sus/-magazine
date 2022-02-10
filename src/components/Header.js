@@ -1,5 +1,4 @@
 import React from "react";
-import '../shared/App.css';
 import {Grid, Text, Button} from "../elements";
 import {getCookie, deleteCookie} from "../shared/Cookie";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,16 +13,19 @@ const Header = (props) => {
   const is_login = useSelector((state) => state.user.is_login);
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`
   const is_session = sessionStorage.getItem(_session_key)? true : false;
-  console.log(is_session);
+  const user_info = useSelector((state)=> state.user.user);
 
   if(is_login && is_session){
+        const user_name = user_info.user_name;
+
         return (
           <React.Fragment>
             <Grid bg="#fff" height="auto" is_zIndex is_fixed is_flex padding="15px 20%" border="4px solid rgb(168, 105, 208)">
               <Grid width="auto">
                 <FontAwesomeIcon icon={faHome} onClick={()=> {history.push("/");}} style={{fontSize: "45px", color: "rgb(168 105 208)", cursor: "pointer"}}/>
               </Grid>
-              <Grid width="auto">
+              <Grid width="auto" is_flex>
+                <Text size="18px" margin="0 15px 0 0" color="rgb(168,105,208)" bold>{user_name}님 환영합니다 :)</Text>
                 <Button text="Log Out" _onClick={()=> {dispatch(userActions.logoutFB());}} lineHeight= "35px" padding="0" width="100px"></Button>
               </Grid>
             </Grid>

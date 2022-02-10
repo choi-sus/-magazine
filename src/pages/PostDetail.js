@@ -1,9 +1,9 @@
 import React from "react";
 import Post from "../components/Post"
-import CommentList from "../components/CommentList";
-import CommentWrite from "../components/CommentWrite";
+
 import {useSelector} from "react-redux";
 import { firestore } from "../shared/firebase";
+import {Grid} from "../elements";
 
 const PostDetail = (props) => {
     const user_info = useSelector((state) => state.user.user);
@@ -13,6 +13,7 @@ const PostDetail = (props) => {
     const post_data = post_list[post_idx];
 
     const [post, setPost] = React.useState(post_data? post_data : null);
+    const [active, setActive] = React.useState(true);
 
     React.useEffect(()=> {
 
@@ -43,9 +44,9 @@ const PostDetail = (props) => {
 
     return (
         <React.Fragment>
-            {post && (<Post {...post} is_me={post.user_info.user_id === user_info.uid} />)}
-            <CommentWrite></CommentWrite>
-            <CommentList></CommentList>
+            <Grid padding="150px 20% 50px 20%">
+                {post && (<Post {...post} is_me={post.user_info.user_id === user_info.uid} active={active} />)}
+            </Grid>
         </React.Fragment>
     )
 }

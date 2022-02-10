@@ -27,7 +27,6 @@ const initialPost =  {
     //   },
       image_url: "http://file3.instiz.net/data/cached_img/upload/2019/01/15/6/04ee674122410d063a5966fa16da5db6.jpg",
       contents: "",
-      comment_cnt: 0,
       insert_dt: moment().format("YYYY-MM-DD hh:mm:ss"),
 }
 

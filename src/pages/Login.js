@@ -29,8 +29,8 @@ const Login = (props) => {
 
   return (
     <React.Fragment>
-      <Grid padding="16px">
-        <Text size="32px" bold>
+      <Grid padding="200px 30% 0px 30%">
+        <Text size="34px" margin="0 0 20px 0" color="rgb(168, 105, 208)" bold>
           로그인
         </Text>
 
@@ -58,9 +58,9 @@ const Login = (props) => {
         <Button
           text="로그인하기"
           _onClick={() => {
-            console.log("로그인 했어!");
             login();
           }}
+          margin="40px 0 0px 0"
           disabled={id === "" || pwd === "" ? true : false}
         ></Button>
       </Grid>

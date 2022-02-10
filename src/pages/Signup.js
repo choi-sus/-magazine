@@ -23,6 +23,11 @@ const Signup = (props) => {
       window.alert("이메일 형식이 맞지 않습니다!");
       return;
     }
+
+    if (pwd.length < 8 || pwd_check.length < 8) {
+      window.alert('비밀번호는 8자 이상으로 설정해 주세요!');
+      return;
+    }
     
     if (pwd !== pwd_check) {
       window.alert("패스워드와 패스워드 확인이 일치하지 않습니다!");
@@ -33,8 +38,8 @@ const Signup = (props) => {
   };
   return (
     <React.Fragment>
-      <Grid padding="16px">
-        <Text size="32px" bold>
+      <Grid padding="120px 30% 50px 30%">
+        <Text size="34px" margin="0 0 20px 0" color="rgb(168, 105, 208)" bold>
           회원가입
         </Text>
 
@@ -80,7 +85,7 @@ const Signup = (props) => {
           />
         </Grid>
 
-        <Button text="회원가입하기" _onClick={signup}></Button>
+        <Button margin="40px 0 0 0" text="회원가입하기" _onClick={signup} disabled={id === "" || pwd === "" || pwd_check === "" || user_name === ""? true : false}></Button>
       </Grid>
     </React.Fragment>
   );

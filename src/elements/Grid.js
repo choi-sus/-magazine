@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Grid = (props) => {
-  const { is_hover, is_shadow, is_zIndex, height, is_fixed, border, is_flex, width, margin, padding, bg, children, center, _onClick } = props;
+  const {is_cursor, is_hover, is_shadow, is_zIndex, height, is_fixed, border, is_flex, width, margin, padding, bg, children, center, _onClick } = props;
 
   const styles = {
       is_flex: is_flex,
@@ -16,7 +16,8 @@ const Grid = (props) => {
       height: height,
       is_zIndex: is_zIndex,
       is_shadow: is_shadow,
-      is_hover: is_hover
+      is_hover: is_hover,
+      is_cursor: is_cursor,
   };
   return (
     <React.Fragment>
@@ -40,6 +41,7 @@ Grid.defaultProps = {
   is_zIndex: false,
   is_shadow: false,
   is_hover: false,
+  is_cursor: false,
 };
 
 const GridBox = styled.div`
@@ -55,8 +57,12 @@ const GridBox = styled.div`
   ${(props)=> props.is_fixed ? `position: fixed;` : ""}
   ${(props)=> props.is_zIndex ? `z-index: 9999;` : ""}
   ${(props)=> props.is_shadow ? `box-shadow: 0 5px 5px grey;` : ""}
-  ${(props)=> props.is_hover ? `&:hover{transform: scale(1.03);}` : ""}
+  // ${(props)=> props.is_hover ? `&:hover{transform: scale(1.03);}` : ""}
+  &:hover{
+    ${(props)=> props.is_hover}
+  }
   transition: transform 0.3s ease-in;
+  ${(props)=> props.is_cursor ? `cursor: pointer;` : ""}
   `;
 
 export default Grid;
